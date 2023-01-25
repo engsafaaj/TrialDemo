@@ -17,8 +17,27 @@ namespace TrialDemo
         {
             InitializeComponent();
             activeHelper = new ActiveHelper(this);
-            activeHelper.CheckTrial();
+            // activeHelper.CheckTrial();
+            SetLimit();
         }
 
+
+       
+        private void SetLimit()
+        {
+            if (Properties.Settings.Default.IsSoftwerAcitve == false)
+            {
+                // Set Limit
+
+                button1.Enabled = false;
+                MessageBox.Show("You are using demo verion");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ActivationForm activationForm = new ActivationForm();
+            activationForm.Show();
+        }
     }
 }
